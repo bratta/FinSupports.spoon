@@ -1,0 +1,79 @@
+[
+  {
+    "desc": "Fin Supports - A Spoon for Hammerspoon",
+    "name": "FinSupports",
+    "type": "Module"
+  },
+  {
+    "desc": "Default hot keys used when setting positions or generating the clicks",
+    "module": "FinSupports",
+    "name": "defaultMappings",
+    "type": "Variable"
+  },
+  {
+    "desc": "How often will clicks occur between points.",
+    "module": "FinSupports",
+    "name": "divisions",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object for this Spoon.",
+    "module": "FinSupports",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "The starting position",
+    "module": "FinSupports",
+    "name": "pos1",
+    "type": "Variable"
+  },
+  {
+    "desc": "The ending position",
+    "module": "FinSupports",
+    "name": "pos2",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds keyboard shortcuts to the proper functions",
+    "module": "FinSupports",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Build the fin supports",
+    "module": "FinSupports",
+    "name": "buildFins",
+    "type": "Method"
+  },
+  {
+    "desc": "Sets the end position for the fin supports.",
+    "module": "FinSupports",
+    "name": "endPosition",
+    "type": "Method"
+  },
+  {
+    "desc": "Sets the default start and end position",
+    "module": "FinSupports",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Reset the start/ending positions to (0,0)",
+    "module": "FinSupports",
+    "name": "initializePositions",
+    "type": "Method"
+  },
+  {
+    "desc": "Resets (i.e. forgets) the positions saved.",
+    "module": "FinSupports",
+    "name": "resetPositions",
+    "type": "Method"
+  },
+  {
+    "desc": "Sets the starting position for the fin supports.",
+    "module": "FinSupports",
+    "name": "startPosition",
+    "type": "Method"
+  }
+]

@@ -1,0 +1,499 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: FinSupports</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; FinSupports</h1>
+      <p>Fin Supports - A Spoon for Hammerspoon
+Builds &quot;fin style&quot; supports for Chitubox on OS X, which are a line of
+supports connected together, suitable for delicate geometries like dice.</p>
+<h2>Usage</h2>
+<p>In your <code>~/.hammerspoon/init.lua</code>, add the following:</p>
+
+<pre><code>hs.loadSpoon(&quot;FinSupports&quot;)
+-- Use the default keybinds:
+spoon.FinSupports:bindHotkeys({})
+-- OR, customize some/all of them:
+spoon.FinSupports:bindHotkeys({
+  startPosition  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;1&quot;},
+  endPosition    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;2&quot;},
+  buildFins      = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;3&quot;},
+  resetPositions = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;4&quot;}
+})
+</code></pre>
+<p>Next, open Chitubox and load the .STL file of your choice.</p>
+<p>Once ready, hit the supports tab and orient the model where you want
+your supports to start. Then you can hit the keystroke to set the
+start position, move your mouse to where you want the line of fin
+supports to end. Hit the keystroke to set the end position.</p>
+<p>Finally, hit the keystroke for building fins and watch the supports
+fly into existence.</p>
+<p>You may need to change the value of <code>divisions</code> to build the supports
+closer to each other, or farther away, depending on your needs. To do
+this, add this to your <code>~/.hammerspoon/init.lua</code> after binding the hotkeys:</p>
+<p><code>spoon.FinSupports.divisions = 40</code></p>
+<h2>Compatibility Note</h2>
+<p>This was tested with Chitubox, but there's no reason it shouldn't work on
+other slicers that use a left mouse click to add a support. That being said,
+there is currently an issue with my favorite slicer, Lychee, that is
+preventing it from placing the support. So YMMV.</p>
+<h2>About</h2>
+<p>This project was inspired by
+<a href="https://github.com/Montahc/FinSupport">FinSupport for AutoHotkey by Montahc</a></p>
+<p>Recently I started exploring the art of creating custom resin dice
+and I found that the most annoying part of the entire process is creating
+the supports needed to properly print dice masters. Youtuber
+<a href="https://www.youtube.com/watch?v=cG1zigTs0-k">Rybonator has a great video</a>
+explaining why &quot;fin style&quot; supports are pretty much a necessary thing.</p>
+<h2>License</h2>
+<p>Copyright 2021 Tim Gourley</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#defaultMappings">defaultMappings</a></li>
+            <li><a href="#divisions">divisions</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#pos1">pos1</a></li>
+            <li><a href="#pos2">pos2</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#buildFins">buildFins</a></li>
+            <li><a href="#endPosition">endPosition</a></li>
+            <li><a href="#init">init</a></li>
+            <li><a href="#initializePositions">initializePositions</a></li>
+            <li><a href="#resetPositions">resetPositions</a></li>
+            <li><a href="#startPosition">startPosition</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="defaultMappings">
+            <a name="//apple_ref/cpp/Variable/defaultMappings" class="dashAnchor"></a>
+            <h5><a href="#defaultMappings">defaultMappings</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports.defaultMappings</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Default hot keys used when setting positions or generating the clicks</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Defaults:
+<pre><code>obj.defaultMappings = {
+  startPosition  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;1&quot;},
+  endPosition    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;2&quot;},
+  buildFins      = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;3&quot;},
+  resetPositions = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;4&quot;}
+}
+</code></pre>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L87">./init.lua line 87</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="divisions">
+            <a name="//apple_ref/cpp/Variable/divisions" class="dashAnchor"></a>
+            <h5><a href="#divisions">divisions</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports.divisions</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>How often will clicks occur between points.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Defaults: <code>80</code></li>
+<li>The larger the number, the closer together the supports will be.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L108">./init.lua line 108</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Logger object for this Spoon.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L117">./init.lua line 117</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="pos1">
+            <a name="//apple_ref/cpp/Variable/pos1" class="dashAnchor"></a>
+            <h5><a href="#pos1">pos1</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports.pos1</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>The starting position</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L122">./init.lua line 122</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="pos2">
+            <a name="//apple_ref/cpp/Variable/pos2" class="dashAnchor"></a>
+            <h5><a href="#pos2">pos2</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports.pos2</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>The ending position</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L127">./init.lua line 127</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Binds keyboard shortcuts to the proper functions</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mapping - The keyboard mappings you wish to use</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>Defaults:
+     <code>mappings = { startPosition = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;1&quot;}, endPosition = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;2&quot;}, buildFins = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;3&quot;}, resetPositions = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;4&quot;} }</code></p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L389">./init.lua line 389</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="buildFins">
+            <a name="//apple_ref/cpp/Method/buildFins" class="dashAnchor"></a>
+            <h5><a href="#buildFins">buildFins</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports:buildFins()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Build the fin supports</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>If a start and end position are set, it will navigate
+  between the two spots and click at a regular interval (based on
+  the <code>divisions</code> variable). In a slicer program like Chitubox, this
+  will add a support each time it clicks, as long as you are in the
+  proper mode for adding supports to your model.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L339">./init.lua line 339</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="endPosition">
+            <a name="//apple_ref/cpp/Method/endPosition" class="dashAnchor"></a>
+            <h5><a href="#endPosition">endPosition</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports:endPosition()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Sets the end position for the fin supports.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Based on the mouse pointer's current location.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L315">./init.lua line 315</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Sets the default start and end position</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>FinSupports object instance</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L375">./init.lua line 375</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="initializePositions">
+            <a name="//apple_ref/cpp/Method/initializePositions" class="dashAnchor"></a>
+            <h5><a href="#initializePositions">initializePositions</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports:initializePositions</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Reset the start/ending positions to (0,0)</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L291">./init.lua line 291</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="resetPositions">
+            <a name="//apple_ref/cpp/Method/resetPositions" class="dashAnchor"></a>
+            <h5><a href="#resetPositions">resetPositions</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports:resetPositions()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Resets (i.e. forgets) the positions saved.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L328">./init.lua line 328</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="startPosition">
+            <a name="//apple_ref/cpp/Method/startPosition" class="dashAnchor"></a>
+            <h5><a href="#startPosition">startPosition</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FinSupports:startPosition()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Sets the starting position for the fin supports.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Based on the mouse pointer's current location.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/./init.lua#L302">./init.lua line 302</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

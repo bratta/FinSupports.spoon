@@ -1,0 +1,444 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "FinSupports:bindHotkeys(mapping)",
+        "desc": "Binds keyboard shortcuts to the proper functions",
+        "doc": "Binds keyboard shortcuts to the proper functions\n\nParameters:\n * mapping - The keyboard mappings you wish to use\n\nNotes:\n  Defaults:\n     ```\n     mappings = {\n       startPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n       endPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n       buildFins = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}\n     }\n     ```",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "389",
+        "name": "bindHotkeys",
+        "notes": [
+          "  Defaults:",
+          "     ```",
+          "     mappings = {",
+          "       startPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},",
+          "       endPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},",
+          "       buildFins = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},",
+          "       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}",
+          "     }",
+          "     ```"
+        ],
+        "parameters": [
+          " * mapping - The keyboard mappings you wish to use"
+        ],
+        "returns": [],
+        "signature": "FinSupports:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:buildFins()",
+        "desc": "Build the fin supports",
+        "doc": "Build the fin supports\n\nParameters:\n * None\n\nNotes:\n  If a start and end position are set, it will navigate\n  between the two spots and click at a regular interval (based on\n  the `divisions` variable). In a slicer program like Chitubox, this\n  will add a support each time it clicks, as long as you are in the\n  proper mode for adding supports to your model.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "339",
+        "name": "buildFins",
+        "notes": [
+          "  If a start and end position are set, it will navigate",
+          "  between the two spots and click at a regular interval (based on",
+          "  the `divisions` variable). In a slicer program like Chitubox, this",
+          "  will add a support each time it clicks, as long as you are in the",
+          "  proper mode for adding supports to your model."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:buildFins()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:endPosition()",
+        "desc": "Sets the end position for the fin supports.",
+        "doc": "Sets the end position for the fin supports.\n\nParameters:\n * None\n\nNotes:\n * Based on the mouse pointer's current location.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "315",
+        "name": "endPosition",
+        "notes": [
+          " * Based on the mouse pointer's current location."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:endPosition()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:init()",
+        "desc": "Sets the default start and end position",
+        "doc": "Sets the default start and end position\n\nParameters:\n * None\n\nReturns:\n  * FinSupports object instance",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "375",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          "  * FinSupports object instance"
+        ],
+        "signature": "FinSupports:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:initializePositions",
+        "desc": "Reset the start/ending positions to (0,0)",
+        "doc": "Reset the start/ending positions to (0,0)\n\nParameters:\n * None",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "291",
+        "name": "initializePositions",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:initializePositions",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:resetPositions()",
+        "desc": "Resets (i.e. forgets) the positions saved.",
+        "doc": "Resets (i.e. forgets) the positions saved.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "328",
+        "name": "resetPositions",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:resetPositions()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:startPosition()",
+        "desc": "Sets the starting position for the fin supports.",
+        "doc": "Sets the starting position for the fin supports.\n\nParameters:\n * None\n\nNotes:\n * Based on the mouse pointer's current location.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "302",
+        "name": "startPosition",
+        "notes": [
+          " * Based on the mouse pointer's current location."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:startPosition()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "FinSupports.defaultMappings",
+        "desc": "Default hot keys used when setting positions or generating the clicks",
+        "doc": "Default hot keys used when setting positions or generating the clicks\n\nNotes:\n  * Defaults:\n     ```\n     obj.defaultMappings = {\n       startPosition  = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n       endPosition    = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n       buildFins      = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}\n     }\n     ```",
+        "file": "./init.lua",
+        "lineno": "87",
+        "name": "defaultMappings",
+        "notes": [
+          "  * Defaults:",
+          "     ```",
+          "     obj.defaultMappings = {",
+          "       startPosition  = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},",
+          "       endPosition    = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},",
+          "       buildFins      = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},",
+          "       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}",
+          "     }",
+          "     ```"
+        ],
+        "signature": "FinSupports.defaultMappings",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports.divisions",
+        "desc": "How often will clicks occur between points.",
+        "doc": "How often will clicks occur between points.\n\nNotes:\n  * Defaults: `80`\n  * The larger the number, the closer together the supports will be.",
+        "file": "./init.lua",
+        "lineno": "108",
+        "name": "divisions",
+        "notes": [
+          "  * Defaults: `80`",
+          "  * The larger the number, the closer together the supports will be."
+        ],
+        "signature": "FinSupports.divisions",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports.logger",
+        "desc": "Logger object for this Spoon.",
+        "doc": "Logger object for this Spoon.",
+        "file": "./init.lua",
+        "lineno": "117",
+        "name": "logger",
+        "signature": "FinSupports.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports.pos1",
+        "desc": "The starting position",
+        "doc": "The starting position",
+        "file": "./init.lua",
+        "lineno": "122",
+        "name": "pos1",
+        "signature": "FinSupports.pos1",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports.pos2",
+        "desc": "The ending position",
+        "doc": "The ending position",
+        "file": "./init.lua",
+        "lineno": "127",
+        "name": "pos2",
+        "signature": "FinSupports.pos2",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Fin Supports - A Spoon for Hammerspoon",
+    "doc": "Fin Supports - A Spoon for Hammerspoon\nBuilds \"fin style\" supports for Chitubox on OS X, which are a line of\nsupports connected together, suitable for delicate geometries like dice.\n\n## Usage\nIn your `~/.hammerspoon/init.lua`, add the following:\n\n```\nhs.loadSpoon(\"FinSupports\")\n-- Use the default keybinds:\nspoon.FinSupports:bindHotkeys({})\n-- OR, customize some/all of them:\nspoon.FinSupports:bindHotkeys({\n  startPosition  = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n  endPosition    = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n  buildFins      = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n  resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}\n})\n```\n\nNext, open Chitubox and load the .STL file of your choice.\n\nOnce ready, hit the supports tab and orient the model where you want\nyour supports to start. Then you can hit the keystroke to set the\nstart position, move your mouse to where you want the line of fin\nsupports to end. Hit the keystroke to set the end position.\n\nFinally, hit the keystroke for building fins and watch the supports\nfly into existence.\n\nYou may need to change the value of `divisions` to build the supports\ncloser to each other, or farther away, depending on your needs. To do\nthis, add this to your `~/.hammerspoon/init.lua` after binding the hotkeys:\n\n`spoon.FinSupports.divisions = 40`\n\n## Compatibility Note\nThis was tested with Chitubox, but there's no reason it shouldn't work on\nother slicers that use a left mouse click to add a support. That being said,\nthere is currently an issue with my favorite slicer, Lychee, that is\npreventing it from placing the support. So YMMV.\n\n## About\nThis project was inspired by\n[FinSupport for AutoHotkey by Montahc](https://github.com/Montahc/FinSupport)\n\nRecently I started exploring the art of creating custom resin dice\nand I found that the most annoying part of the entire process is creating\nthe supports needed to properly print dice masters. Youtuber\n[Rybonator has a great video](https://www.youtube.com/watch?v=cG1zigTs0-k)\nexplaining why \"fin style\" supports are pretty much a necessary thing.\n\n## License\n\nCopyright 2021 Tim Gourley\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to\ndeal in the Software without restriction, including without limitation the\nrights to use, copy, modify, merge, publish, distribute, sublicense, and/or\nsell copies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.",
+    "items": [
+      {
+        "def": "FinSupports:bindHotkeys(mapping)",
+        "desc": "Binds keyboard shortcuts to the proper functions",
+        "doc": "Binds keyboard shortcuts to the proper functions\n\nParameters:\n * mapping - The keyboard mappings you wish to use\n\nNotes:\n  Defaults:\n     ```\n     mappings = {\n       startPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n       endPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n       buildFins = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}\n     }\n     ```",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "389",
+        "name": "bindHotkeys",
+        "notes": [
+          "  Defaults:",
+          "     ```",
+          "     mappings = {",
+          "       startPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},",
+          "       endPosition = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},",
+          "       buildFins = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},",
+          "       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}",
+          "     }",
+          "     ```"
+        ],
+        "parameters": [
+          " * mapping - The keyboard mappings you wish to use"
+        ],
+        "returns": [],
+        "signature": "FinSupports:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:buildFins()",
+        "desc": "Build the fin supports",
+        "doc": "Build the fin supports\n\nParameters:\n * None\n\nNotes:\n  If a start and end position are set, it will navigate\n  between the two spots and click at a regular interval (based on\n  the `divisions` variable). In a slicer program like Chitubox, this\n  will add a support each time it clicks, as long as you are in the\n  proper mode for adding supports to your model.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "339",
+        "name": "buildFins",
+        "notes": [
+          "  If a start and end position are set, it will navigate",
+          "  between the two spots and click at a regular interval (based on",
+          "  the `divisions` variable). In a slicer program like Chitubox, this",
+          "  will add a support each time it clicks, as long as you are in the",
+          "  proper mode for adding supports to your model."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:buildFins()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports.defaultMappings",
+        "desc": "Default hot keys used when setting positions or generating the clicks",
+        "doc": "Default hot keys used when setting positions or generating the clicks\n\nNotes:\n  * Defaults:\n     ```\n     obj.defaultMappings = {\n       startPosition  = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n       endPosition    = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n       buildFins      = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}\n     }\n     ```",
+        "file": "./init.lua",
+        "lineno": "87",
+        "name": "defaultMappings",
+        "notes": [
+          "  * Defaults:",
+          "     ```",
+          "     obj.defaultMappings = {",
+          "       startPosition  = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},",
+          "       endPosition    = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},",
+          "       buildFins      = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},",
+          "       resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}",
+          "     }",
+          "     ```"
+        ],
+        "signature": "FinSupports.defaultMappings",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports.divisions",
+        "desc": "How often will clicks occur between points.",
+        "doc": "How often will clicks occur between points.\n\nNotes:\n  * Defaults: `80`\n  * The larger the number, the closer together the supports will be.",
+        "file": "./init.lua",
+        "lineno": "108",
+        "name": "divisions",
+        "notes": [
+          "  * Defaults: `80`",
+          "  * The larger the number, the closer together the supports will be."
+        ],
+        "signature": "FinSupports.divisions",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports:endPosition()",
+        "desc": "Sets the end position for the fin supports.",
+        "doc": "Sets the end position for the fin supports.\n\nParameters:\n * None\n\nNotes:\n * Based on the mouse pointer's current location.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "315",
+        "name": "endPosition",
+        "notes": [
+          " * Based on the mouse pointer's current location."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:endPosition()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:init()",
+        "desc": "Sets the default start and end position",
+        "doc": "Sets the default start and end position\n\nParameters:\n * None\n\nReturns:\n  * FinSupports object instance",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "375",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          "  * FinSupports object instance"
+        ],
+        "signature": "FinSupports:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:initializePositions",
+        "desc": "Reset the start/ending positions to (0,0)",
+        "doc": "Reset the start/ending positions to (0,0)\n\nParameters:\n * None",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "291",
+        "name": "initializePositions",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:initializePositions",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports.logger",
+        "desc": "Logger object for this Spoon.",
+        "doc": "Logger object for this Spoon.",
+        "file": "./init.lua",
+        "lineno": "117",
+        "name": "logger",
+        "signature": "FinSupports.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports.pos1",
+        "desc": "The starting position",
+        "doc": "The starting position",
+        "file": "./init.lua",
+        "lineno": "122",
+        "name": "pos1",
+        "signature": "FinSupports.pos1",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports.pos2",
+        "desc": "The ending position",
+        "doc": "The ending position",
+        "file": "./init.lua",
+        "lineno": "127",
+        "name": "pos2",
+        "signature": "FinSupports.pos2",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "FinSupports:resetPositions()",
+        "desc": "Resets (i.e. forgets) the positions saved.",
+        "doc": "Resets (i.e. forgets) the positions saved.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "328",
+        "name": "resetPositions",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:resetPositions()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "FinSupports:startPosition()",
+        "desc": "Sets the starting position for the fin supports.",
+        "doc": "Sets the starting position for the fin supports.\n\nParameters:\n * None\n\nNotes:\n * Based on the mouse pointer's current location.",
+        "examples": [],
+        "file": "./init.lua",
+        "lineno": "302",
+        "name": "startPosition",
+        "notes": [
+          " * Based on the mouse pointer's current location."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "FinSupports:startPosition()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "FinSupports",
+    "stripped_doc": "Builds \"fin style\" supports for Chitubox on OS X, which are a line of\nsupports connected together, suitable for delicate geometries like dice.\n\n## Usage\nIn your `~/.hammerspoon/init.lua`, add the following:\n\n```\nhs.loadSpoon(\"FinSupports\")\n-- Use the default keybinds:\nspoon.FinSupports:bindHotkeys({})\n-- OR, customize some/all of them:\nspoon.FinSupports:bindHotkeys({\n  startPosition  = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n  endPosition    = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n  buildFins      = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n  resetPositions = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"}\n})\n```\n\nNext, open Chitubox and load the .STL file of your choice.\n\nOnce ready, hit the supports tab and orient the model where you want\nyour supports to start. Then you can hit the keystroke to set the\nstart position, move your mouse to where you want the line of fin\nsupports to end. Hit the keystroke to set the end position.\n\nFinally, hit the keystroke for building fins and watch the supports\nfly into existence.\n\nYou may need to change the value of `divisions` to build the supports\ncloser to each other, or farther away, depending on your needs. To do\nthis, add this to your `~/.hammerspoon/init.lua` after binding the hotkeys:\n\n`spoon.FinSupports.divisions = 40`\n\n## Compatibility Note\nThis was tested with Chitubox, but there's no reason it shouldn't work on\nother slicers that use a left mouse click to add a support. That being said,\nthere is currently an issue with my favorite slicer, Lychee, that is\npreventing it from placing the support. So YMMV.\n\n## About\nThis project was inspired by\n[FinSupport for AutoHotkey by Montahc](https://github.com/Montahc/FinSupport)\n\nRecently I started exploring the art of creating custom resin dice\nand I found that the most annoying part of the entire process is creating\nthe supports needed to properly print dice masters. Youtuber\n[Rybonator has a great video](https://www.youtube.com/watch?v=cG1zigTs0-k)\nexplaining why \"fin style\" supports are pretty much a necessary thing.\n\n## License\n\nCopyright 2021 Tim Gourley\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to\ndeal in the Software without restriction, including without limitation the\nrights to use, copy, modify, merge, publish, distribute, sublicense, and/or\nsell copies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.",
+    "submodules": [],
+    "type": "Module"
+  }
+]
