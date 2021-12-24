@@ -3,6 +3,8 @@
 Builds "fin style" supports for Chitubox on OS X, which are a line of
 supports connected together, suitable for delicate geometries like dice.
 
+You can see an example of this tool in action [in this video](https://www.youtube.com/watch?v=NAngUwXRQF8)
+
 ## Usage
 You will need to install [Hammerspoon](https://www.hammerspoon.org/) for OS X.
 
