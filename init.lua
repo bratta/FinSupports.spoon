@@ -5,6 +5,13 @@
 --- supports connected together, suitable for delicate geometries like dice.
 ---
 --- ## Usage
+--- You will need to install [Hammerspoon](https://www.hammerspoon.org/)
+--- for OS X.
+---
+--- Download the latest release of this Spoon
+--- [FOUND HERE](https://github.com/bratta/FinSupports.spoon/releases), or 
+--- clone this repository to your `~/.hammerspoon/Spoons` directory.
+---
 --- In your `~/.hammerspoon/init.lua`, add the following:
 ---
 --- ```
@@ -81,7 +88,7 @@ obj.__index = obj
 obj.name = "FinSupports"
 obj.version = "1.0.0"
 obj.author = "Tim Gourley <tgourley@gmail.com>"
-obj.homepage = "https://github.com/bratta/FinSupports"
+obj.homepage = "https://github.com/bratta/FinSupports.spoon"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 --- FinSupports.defaultMappings
