@@ -8,11 +8,11 @@
 --- You will need to install [Hammerspoon](https://www.hammerspoon.org/)
 --- for OS X.
 ---
---- Download the latest release of this Spoon
---- [FOUND HERE](https://github.com/bratta/FinSupports.spoon/releases), or 
---- clone this repository to your `~/.hammerspoon/Spoons` directory.
----
---- In your `~/.hammerspoon/init.lua`, add the following:
+--- * Download the latest release of this Spoon
+--- [FOUND HERE](https://github.com/bratta/FinSupports.spoon/releases), uncompress
+--- it, and double-click `FinSupports.spoon`.
+--- * OR, you can clone this repository to your `~/.hammerspoon/Spoons` directory.
+--- * Then, in your `~/.hammerspoon/init.lua`, add the following:
 ---
 --- ```
 --- hs.loadSpoon("FinSupports")
