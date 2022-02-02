@@ -86,7 +86,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "FinSupports"
-obj.version = "1.0.0"
+obj.version = "1.0.1"
 obj.author = "Tim Gourley <tgourley@gmail.com>"
 obj.homepage = "https://github.com/bratta/FinSupports.spoon"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -372,6 +372,7 @@ function obj:buildFins()
       currentx = currentx + incx
       currenty = currenty + incy
       local newPoint = hs.geometry.point(currentx, currenty)
+      focusedWindow:application():activate()
       hs.mouse.absolutePosition(newPoint)
       hs.eventtap.leftClick(newPoint)
       i = i + 1
